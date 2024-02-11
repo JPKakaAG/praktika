@@ -31,24 +31,10 @@ namespace praktika
                 int.TryParse(tb2.Text, out number2) &&
                 int.TryParse(tb3.Text, out number3))
             {
-                int positiveCount = 0;
-                int negativeCount = 0;
-
-                if (number1 > 0)
-                    positiveCount++;
-                else if (number1 < 0)
-                    negativeCount++;
-
-                if (number2 > 0)
-                    positiveCount++;
-                else if (number2 < 0)
-                    negativeCount++;
-
-                if (number3 > 0)
-                    positiveCount++;
-                else if (number3 < 0)
-                    negativeCount++;
-
+                int[] result = class2.PaNcount(number1, number2, number3);
+                int positiveCount, negativeCount;
+                positiveCount = result[0];
+                negativeCount = result[1];
                 tb4.Text = $"Положительных чисел: {positiveCount}\r\nОтрицательных чисел: {negativeCount}";
                
             }

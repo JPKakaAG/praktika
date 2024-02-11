@@ -36,7 +36,7 @@ namespace praktika
     internal class class2
     {
         /// <summary>
-        /// Заполняет матрицу
+        /// Заполняет матрицу для 4 задания
         /// </summary>
         /// <param name="rows"></param>
         /// <param name="columns"></param>
@@ -56,7 +56,7 @@ namespace praktika
             return matrix;
         }
         /// <summary>
-        /// Формирует одномерный массив
+        /// Формирует одномерный массив для 4 задания
         /// </summary>
         /// <param name="matrix"></param>
         /// <param name="a"></param>
@@ -80,5 +80,72 @@ namespace praktika
             return resultArray;
 
         }
+        /// <summary>
+        /// Определяет что все цифры трёхзначного числа одинаковые                                      
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public static bool Evencount(int number)
+        {
+            int firstDigit = number / 100;
+            int secondDigit = (number / 10) % 10;
+            int thirdDigit = number % 10;
+                if (firstDigit == secondDigit && secondDigit == thirdDigit)
+                {
+                    return(true);
+                }
+                else
+                {
+                    return(false);
+                }
+        }
+        /// <summary>
+        /// Находит кол-во положительных и отрицательных чисел среди трёх чисел
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <param name="number3"></param>
+        /// <returns></returns>
+        public static int[] PaNcount(int number1, int number2, int number3)
+        {
+            int[] resultArray = new int[2];
+            int positiveCount = 0;
+            int negativeCount = 0;
+
+            if (number1 > 0)
+                positiveCount++;
+            else if (number1 < 0)
+                negativeCount++;
+
+            if (number2 > 0)
+                positiveCount++;
+            else if (number2 < 0)
+                negativeCount++;
+
+            if (number3 > 0)
+                positiveCount++;
+            else if (number3 < 0)
+                negativeCount++;
+
+            resultArray[0] = positiveCount;
+            resultArray[1] = negativeCount;
+
+            return(resultArray);
+        }
+        /// <summary>
+        /// Определяет на сколько максимальный элемент массива больше минимального
+        /// </summary>
+        /// <param name="numbers"></param>
+        /// <returns></returns>
+        public static int N3(string[]numbers)
+        {
+            int[] array = numbers.Select(int.Parse).ToArray();
+            int minValue = array.Min();
+            int maxValue = array.Max();
+
+            int difference = maxValue - minValue;
+            return(difference);
+        }
     }
+    
 }

@@ -28,11 +28,7 @@ namespace praktika
             string input = tb2.Text;
             string[] numbers = input.Split(' ');
 
-            int[] array = numbers.Select(int.Parse).ToArray();
-            int minValue = array.Min();
-            int maxValue = array.Max();
-
-            int difference = maxValue - minValue;
+            int difference = class2.N3(numbers);
 
             tb4.Text = $"Разница: {difference}";
         }

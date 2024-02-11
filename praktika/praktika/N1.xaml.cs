@@ -31,17 +31,14 @@ namespace praktika
             {
                 if (number >= 100 && number <= 999)
                 {
-                    int firstDigit = number / 100;
-                    int secondDigit = (number / 10) % 10;
-                    int thirdDigit = number % 10;
-
-                    if (firstDigit == secondDigit && secondDigit == thirdDigit)
+                    bool result = class2.Evencount(number); 
+                    if (result == true)
                     {
-                        tb2.Text = "Все цифры одинаковые.";
+                        tb2.Text = $"Все цифры одинаковые";
                     }
                     else
                     {
-                        tb2.Text = "Не все цифры одинаковые.";
+                        tb2.Text = $"Все цифры неодинаковые";
                     }
                 }
                 else
