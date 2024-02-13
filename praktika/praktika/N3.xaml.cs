@@ -27,10 +27,19 @@ namespace praktika
         {
             string input = tb2.Text;
             string[] numbers = input.Split(' ');
-
-            int difference = class2.N3(numbers);
-
-            tb4.Text = $"Разница: {difference}";
+            int[] numberArray = new int[numbers.Length];
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (int.TryParse(numbers[i], out int number))
+                {
+                    numberArray[i] = number;
+                }
+                else
+                {
+                    Console.WriteLine($"Ошибка");
+                }
+            }
+            tb4.Text = $"{class2.N3(numberArray)}";
         }
 
         private void back_click(object sender, RoutedEventArgs e)

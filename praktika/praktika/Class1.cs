@@ -100,17 +100,17 @@ namespace praktika
                 }
         }
         /// <summary>
-        /// Находит кол-во положительных и отрицательных чисел среди трёх чисел
+        /// 
         /// </summary>
         /// <param name="number1"></param>
         /// <param name="number2"></param>
         /// <param name="number3"></param>
-        /// <returns></returns>
-        public static int[] PaNcount(int number1, int number2, int number3)
+        /// <param name="positiveCount"></param>
+        /// <param name="negativeCount"></param>
+        public static void PaNcount(int number1, int number2, int number3, out int positiveCount, out int negativeCount)
         {
-            int[] resultArray = new int[2];
-            int positiveCount = 0;
-            int negativeCount = 0;
+            positiveCount = 0;
+            negativeCount = 0;
 
             if (number1 > 0)
                 positiveCount++;
@@ -126,25 +126,32 @@ namespace praktika
                 positiveCount++;
             else if (number3 < 0)
                 negativeCount++;
-
-            resultArray[0] = positiveCount;
-            resultArray[1] = negativeCount;
-
-            return(resultArray);
         }
         /// <summary>
         /// Определяет на сколько максимальный элемент массива больше минимального
         /// </summary>
         /// <param name="numbers"></param>
         /// <returns></returns>
-        public static int N3(string[]numbers)
+        public static int N3(int[] array)
         {
-            int[] array = numbers.Select(int.Parse).ToArray();
-            int minValue = array.Min();
-            int maxValue = array.Max();
+            int max = array[0];
+            int min = array[0];
 
-            int difference = maxValue - minValue;
-            return(difference);
+            foreach (int num in array)
+            {
+                if (num > max)
+                {
+                    max = num;
+                }
+
+                if (num < min)
+                {
+                    min = num;
+                }
+            }
+
+            int difference = max - min;
+            return (difference);
         }
     }
     
