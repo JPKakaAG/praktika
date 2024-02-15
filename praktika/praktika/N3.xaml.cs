@@ -36,7 +36,8 @@ namespace praktika
                 }
                 else
                 {
-                    Console.WriteLine($"Ошибка");
+                    MessageBox.Show($"Ошибка");
+                    break;
                 }
             }
             tb4.Text = $"{class2.N3(numberArray)}";
